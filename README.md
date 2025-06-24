@@ -1,4 +1,4 @@
-### 📘 [🇵🇹 Clique aqui para ler a versão em Português](./README.pt.md)
+### 📘 [🇵🇹 leia em Português](./README.pt.md)
 
 ### 📡 demo-websockets
 
@@ -35,7 +35,7 @@ xmake
 # Run the server
 xmake run
 ```
-Make sure you have Drogon and its dependencies properly installed on your system before building. For more details, check the Drogon documentation.
+Make sure you have Drogon and its dependencies properly installed on your system before building. For more details, check the [Drogon documentation](https://drogonframework.github.io/drogon-docs/#/).
 
 📌 Notes
 This repository has a didactic purpose and serves as a foundation for study and future extensions. Contributions are welcome!
