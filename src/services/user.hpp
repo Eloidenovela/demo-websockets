@@ -6,6 +6,7 @@
 
 #include "crud.hpp"
 #include "../models/user.hpp"
+#include "../util/hash.hpp"
 #include <optional>
 
 namespace service {
@@ -16,6 +17,11 @@ namespace service {
         explicit user(S & storage) : crud<S, model::user>(storage) {}
         ~user() override {};
 
+        long create(model::user & user) override {
+            user.passwd = util::hash::encode(user.passwd);
+            return crud<S, model::user>::create(user);
+        }
+
         std::optional<model::user> get(const std::string & phone, const std::string & passwd) {
             using namespace sqlite_orm;
             try {
@@ -23,7 +29,7 @@ namespace service {
                     where(
                         and_(
                             is_equal(&model::user::phone, phone),
-                            is_equal(&model::user::passwd, passwd)
+                            is_equal(&model::user::passwd, util::hash::encode(passwd))
                         )
                     )
                 );
