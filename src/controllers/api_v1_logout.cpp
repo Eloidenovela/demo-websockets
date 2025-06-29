@@ -12,7 +12,7 @@ namespace v1
     {
         if (auto & session = req->getSession())
         {
-            session->insert("is_verified", false);
+            session->erase("is_verified");
             return callback(HttpResponse::newHttpResponse(HttpStatusCode::k200OK, ContentType::CT_NONE));
         }
         return callback(HttpResponse::newHttpResponse(HttpStatusCode::k503ServiceUnavailable, ContentType::CT_NONE));

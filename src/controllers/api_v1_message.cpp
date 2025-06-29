@@ -8,7 +8,6 @@ namespace v1
 {
     void api_v1_message::handleNewMessage(const WebSocketConnectionPtr& wsConnPtr, std::string &&message, const WebSocketMessageType &type)
     {
-        // write your application logic here
         // LOG_INFO << "new websocket message: " << message;
         if (type == WebSocketMessageType::Ping) {
             LOG_INFO << "Ping";
